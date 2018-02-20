@@ -20,7 +20,6 @@ $(document).ready(function() {
     // Use setInterval to start the count and set the timer to running in 1000ms increments
     timerId = setInterval(countdown, 1000);
     
-
     function countdown() {
         if (timeLeft !== 0) {
             // Display countdown
