@@ -54,42 +54,42 @@ $(document).ready(function() {
         {
             question: '1. How many body systems are there?',
             choices: ['4', '7', '11', '15'],
-            correctAnswer: 3
+            correctAnswer: 2
         },
         {
             question: '2. What connects bones and muscles together?',
             choices: ['Ligaments', 'Tendons', 'Glue', 'Cartilage'],
-            correctAnswer: 2
+            correctAnswer: 1
         },
         {
             question: '3. Which part of the brain keeps you breathing?',
             choices: ['Frontal lobe', 'Pituitary gland', 'Cerebellum', 'Brain stem'],
-            correctAnswer: 4
+            correctAnswer: 3
         },
         {
             question: '4. How many bones does an adult human have?',
             choices: ['102', '206', '254', '311'],
-            correctAnswer: 2
+            correctAnswer: 1
         },
         {
             question: '5. What component of the eye allows for color vision?',
             choices: ['Lens', 'Rods', 'Cones', 'Iris'],
-            correctAnswer: 3
+            correctAnswer: 2
         },
         {
             question: "6. How long are an adult's small and large intestines, respectively?",
             choices: ['22ft, 5ft', '11ft, 2ft', '5ft, 17ft', '7ft, 30ft'],
-            correctAnswer: 1
+            correctAnswer: 0
         },
         {
             question: '7. What are you front teeth called?',
             choices: ['Canines', 'Chompers', 'Incisors', 'Molars'],
-            correctAnswer: 3
+            correctAnswer: 2
         },
         {
             question: '8. What organ removes waste from blood?',
             choices: ['Heart', 'Liver', 'Gallbladder', 'Kidneys'],
-            correctAnswer: 4
+            correctAnswer: 3
         }
     ];
 
@@ -101,7 +101,7 @@ $(document).ready(function() {
     // Create function to display all quiz questions and answers
     function displayQuestions() {
 
-        // Loop through all questions
+        // Loop through questions array
         for (var i = 0; i<questions.length; i++) {
 
             // Display each question
@@ -110,8 +110,9 @@ $(document).ready(function() {
 
             // Display all answer choices using radio buttons
             var choices = questions[i].choices;
-            $('#questions').append(choices.join(' ' + '<br>') + '<br>' + '<br>');
-
+            $('#questions').append("<input type='radio' name='quiz" + choices[i] + "'id='choice" + (i + 1) + "'value='" + choices[i] + "'>" + "<label>" + choices.join(' ' + '<br>') + "</label><br>");
+            
+            
             // Check if answer is correct
             if (questions[i].correctAnswer);
         }
