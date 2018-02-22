@@ -174,9 +174,8 @@ $(document).ready(function() {
                     amountIncorrect++;
                 }
                 // Calculate amount unanswered 
-                else {
-                    amountUnanswered = questions.length - amountCorrect - amountIncorrect; // <---- Sometimes wrong ***
-                }
+                amountUnanswered = questions.length - amountCorrect - amountIncorrect; // <---- Sometimes wrong ***
+                
             }
         }
     }
@@ -186,7 +185,6 @@ $(document).ready(function() {
 // ** Help! **
 // Want to combine code of timer reaching 0 and done button clicked
 // Results are shifted so made weird fix, adding -1 to couple places
-// Current bug: when results are all correct, 1 question shows up as unanswered
 
 
 
