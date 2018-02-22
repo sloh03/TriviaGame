@@ -38,7 +38,7 @@ $(document).ready(function() {
             timeLeft--;
         }
         // AT END OF TIMER OR WHEN 'DONE' BUTTON PRESSED
-        else {
+        else if (timeLeft === 0 || $('#done').click()) {
             clearTimeout(timerId);
             // Hide questions
             // Hide timer
@@ -110,11 +110,12 @@ $(document).ready(function() {
 
             // Display all answer choices using radio buttons
             var choices = questions[i].choices;
-            $('#questions').append("<input type='radio' name='quiz" + choices[i] + "'id='choice" + (i + 1) + "'value='" + choices[i] + "'>" + "<label>" + choices.join(' ' + '<br>') + "</label><br>");
-            
-            
+            $('#questions').append("<label>" + "<input type='radio' name='quiz" + question[0] + "'id='choice" + (0) + "'value='" + choices[0] + "'>" + ' ' + choices[0] + "</label><br>");
+            $('#questions').append("<label>" + "<input type='radio' name='quiz" + question[0] + "'id='choice" + (1) + "'value='" + choices[1] + "'>" + ' ' + choices[1] + "</label><br>");
+            $('#questions').append("<label>" + "<input type='radio' name='quiz" + question[0] + "'id='choice" + (2) + "'value='" + choices[2] + "'>" + ' ' + choices[2] + "</label><br>");
+            $('#questions').append("<label>" + "<input type='radio' name='quiz" + question[0] + "'id='choice" + (3) + "'value='" + choices[3] + "'>" + ' ' + choices[3] + "</label><br>" + '<br>');
+           
             // Check if answer is correct
-            if (questions[i].correctAnswer);
         }
     }
 
