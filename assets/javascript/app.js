@@ -26,10 +26,9 @@ $(document).ready(function() {
     // Use setInterval to start the count and set the timer to running in 1000ms increments
     function startTimer(){
         timerId = setInterval(countdown, 1000);
-        console.log("test");
     }
 
-    // Create coundown function
+    // Create countdown function
     function countdown() {
 
         if (timeLeft !== -1) {
@@ -37,16 +36,46 @@ $(document).ready(function() {
             $('#time-left').html(timeLeft + ' seconds remaining');
             timeLeft--;
         }
-        // AT END OF TIMER OR WHEN 'DONE' BUTTON PRESSED
-        else if (timeLeft === 0 || $('#done').click()) {
+        // AT END OF TIMER
+        if (timeLeft === -1) {
             clearTimeout(timerId);
             // Hide questions
+            $('#questions').hide();
             // Hide timer
-            // Display 'All Done!' message
+            $('#time-left').hide();
+            // Hide 'Done' button
+            $('#done').hide();
             // Push correct, incorrect, and unanswered questions to array
-            // Display amount of correct, incorrect, and unanswered questions (array length)
+            checkAnswers();
+            // Display 'All Done!' message and amount of correct, incorrect, and unanswered questions (array length)
+            $('#results').append(
+                'All done!' + '<br>' + 
+                'Correct Answers: ' + amountCorrect + '<br>' +
+                'Incorrect Answers: ' + amountIncorrect + '<br>' +
+                'Unanswered: ' + amountUnanswered
+            );
         }
     }
+
+    // On click of 'Done' button
+    $('#done').on("click", function() {
+        clearTimeout(timerId);
+        // Hide questions
+        $('#questions').hide();
+        // Hide timer
+        $('#time-left').hide();
+        // Hide 'Done' button
+        $('#done').hide();
+        // Push correct, incorrect, and unanswered questions to array
+        checkAnswers();
+        // Display 'All Done!' message and amount of correct, incorrect, and unanswered questions (array length)
+        $('#results').append(
+            'All done!' + '<br>' + 
+            'Correct Answers: ' + amountCorrect + '<br>' +
+            'Incorrect Answers: ' + amountIncorrect + '<br>' +
+            'Unanswered: ' + amountUnanswered
+        );
+    });
 
     // DISPLAY QUIZ
     // Use array to store questions, answer choices, and correct answer
@@ -93,11 +122,6 @@ $(document).ready(function() {
         }
     ];
 
-    // Set count variables for quiz results
-    var correct = 0;
-    var incorrect = 0;
-    var unanswered = 0;
-
     // Create function to display all quiz questions and answers
     function displayQuestions() {
 
@@ -110,12 +134,43 @@ $(document).ready(function() {
 
             // Display all answer choices using radio buttons
             var choices = questions[i].choices;
-            $('#questions').append("<label>" + "<input type='radio' name='quiz" + question[0] + "'id='choice" + (0) + "'value='" + choices[0] + "'>" + ' ' + choices[0] + "</label><br>");
-            $('#questions').append("<label>" + "<input type='radio' name='quiz" + question[0] + "'id='choice" + (1) + "'value='" + choices[1] + "'>" + ' ' + choices[1] + "</label><br>");
-            $('#questions').append("<label>" + "<input type='radio' name='quiz" + question[0] + "'id='choice" + (2) + "'value='" + choices[2] + "'>" + ' ' + choices[2] + "</label><br>");
-            $('#questions').append("<label>" + "<input type='radio' name='quiz" + question[0] + "'id='choice" + (3) + "'value='" + choices[3] + "'>" + ' ' + choices[3] + "</label><br>" + '<br>');
-           
-            // Check if answer is correct
+            $('#questions').append("<label>" + "<input type='radio' name='quiz" + question[0] + "'id='" + (0) + "'value='" + choices[0] + "'>" + ' ' + choices[0] + "</label><br>");
+            $('#questions').append("<label>" + "<input type='radio' name='quiz" + question[0] + "'id='" + (1) + "'value='" + choices[1] + "'>" + ' ' + choices[1] + "</label><br>");
+            $('#questions').append("<label>" + "<input type='radio' name='quiz" + question[0] + "'id='" + (2) + "'value='" + choices[2] + "'>" + ' ' + choices[2] + "</label><br>");
+            $('#questions').append("<label>" + "<input type='radio' name='quiz" + question[0] + "'id='" + (3) + "'value='" + choices[3] + "'>" + ' ' + choices[3] + "</label><br>" + '<br>');
+        }
+    }
+
+    // CHECK RESULTS
+    // Set count variables for quiz results
+    var amountCorrect = 0;
+    var amountIncorrect = 0;
+    var amountUnanswered = 0;
+
+    // Create function to check answers
+    function checkAnswers() {
+
+        // Loop through all questions
+        for (var i = 1; i<questions.length; i++) {
+
+            // Loop through sets of answer choices for each question
+            var radios = document.getElementsByName('quiz' + i);
+            for (var j = 0; j<radios.length; j++) {
+
+                // Check if selected answer is correct 
+                var radio = radios[j];
+                if(parseInt(radio.id) === questions.correctAnswer && radio.checked) {
+                    amountCorrect++;
+                }
+                // Check if selected answer is incorrect
+                else if (parseInt(radio.id) !== questions.correctAnswer && radio.checked) {
+                    amountIncorrect++;
+                }
+                // Check if unanswered
+                else if (radio.checked = false){
+                    amountUnanswered++;
+                }
+            }
         }
     }
 
@@ -134,3 +189,7 @@ $(document).ready(function() {
     // Display 'All Done!' message
     // Push correct, incorrect, and unanswered questions to separate arrays
     // Display amount of correct, incorrect, and unanswered questions (array length)
+
+// ** Help! **
+// Want to combine code of timer reaching 0 and done button clicked
+// Results not displaying, also not in jQuery
