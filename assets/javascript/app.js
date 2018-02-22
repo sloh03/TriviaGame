@@ -18,7 +18,7 @@ $(document).ready(function() {
 
     // COUNTDOWN TIMER
     // Start timer countdown from 30s
-    var timeLeft = 30;
+    var timeLeft = 45;
         
     // Variable that will hold our setInterval that runs the timer
     var timerId;
@@ -59,6 +59,7 @@ $(document).ready(function() {
 
     // ON CLICK OF DONE BUTTON
     $('#done').on("click", function() {
+        // Clear timer
         clearTimeout(timerId);
         // Hide questions
         $('#questions').hide();
@@ -66,7 +67,7 @@ $(document).ready(function() {
         $('#time-left').hide();
         // Hide 'Done' button
         $('#done').hide();
-        // Push correct, incorrect, and unanswered questions to array
+        // Count correct and incorrect questions, subtract from total to count unanswered questions
         checkAnswers();
         // Display 'All Done!' message and amount of correct, incorrect, and unanswered questions (array length)
         $('#results').append(
@@ -117,7 +118,7 @@ $(document).ready(function() {
         },
         {
             question: '8. What organ removes waste from blood?',
-            choices: ['Heart', 'Liver', 'Gallbladder', 'Kidneys'],
+            choices: ['Heart', 'Appendix', 'Gallbladder', 'Kidneys'],
             correctAnswer: 3
         }
     ];
@@ -152,7 +153,7 @@ $(document).ready(function() {
     function checkAnswers() {
 
         // Loop through all questions
-        for (var i = 0; i<questions.length+1; i++) {
+        for (var i = 0; i<questions.length+1; i++) { // <---- Added +1 here to register question #8 ***
 
             var radios = document.getElementsByName('quiz' + i);
 
@@ -160,7 +161,7 @@ $(document).ready(function() {
             for (var j = 0; j<radios.length; j++) {
 
                 var radio = radios[j];
-                var correctAnswer = questions[i-1].correctAnswer;
+                var correctAnswer = questions[i-1].correctAnswer; // <---- -1 here so answers match with question ***
 
                 // Check if selected answer is correct 
                 if(parseInt(radio.id) === correctAnswer && radio.checked) {
@@ -174,7 +175,7 @@ $(document).ready(function() {
                 }
                 // Calculate amount unanswered 
                 else {
-                    amountUnanswered = questions.length-1 - amountCorrect - amountIncorrect;
+                    amountUnanswered = questions.length - amountCorrect - amountIncorrect; // <---- Sometimes wrong ***
                 }
             }
         }
@@ -182,20 +183,27 @@ $(document).ready(function() {
 
 });
 
+// ** Help! **
+// Want to combine code of timer reaching 0 and done button clicked
+// Results are shifted so made weird fix, adding -1 to couple places
+// Current bug: when results are all correct, 1 question shows up as unanswered
+
+
+
+
+// SUMMARY
+
 // ON PAGE LOAD, DISPLAY START BUTTON
 // ON CLICK OF START BUTTON
     // Hide start button
-    // Start timer countdown from 30s, 1000ms increment
-    // Display 8 questions with answer choices
+    // Start timer countdown from 30s, 1000ms increment (function)
+    // Display 8 questions with answer choices (function)
     // Display 'done' button
 
 // AT END OF TIMER OR WHEN 'DONE' BUTTON PRESSED
+    // Clear timer
     // Hide questions
     // Hide timer
-    // Display 'All Done!' message
-    // Push correct, incorrect, and unanswered questions to separate arrays
-    // Display amount of correct, incorrect, and unanswered questions (array length)
+    // Count correct and incorrect questions, subtract from total to count unanswered questions (function)
+    // Display 'All Done!' message and amount of correct, incorrect, and unanswered questions
 
-// ** Help! **
-// Want to combine code of timer reaching 0 and done button clicked
-// Results are shifted
