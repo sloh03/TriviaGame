@@ -152,7 +152,7 @@ $(document).ready(function() {
     function checkAnswers() {
 
         // Loop through all questions
-        for (var i = 0; i<questions.length; i++) {
+        for (var i = 0; i<questions.length+1; i++) {
 
             var radios = document.getElementsByName('quiz' + i);
 
@@ -160,7 +160,7 @@ $(document).ready(function() {
             for (var j = 0; j<radios.length; j++) {
 
                 var radio = radios[j];
-                var correctAnswer = questions[i].correctAnswer;
+                var correctAnswer = questions[i-1].correctAnswer;
 
                 // Check if selected answer is correct 
                 if(parseInt(radio.id) === correctAnswer && radio.checked) {
@@ -174,7 +174,7 @@ $(document).ready(function() {
                 }
                 // Calculate amount unanswered 
                 else {
-                    amountUnanswered = questions.length - amountCorrect - amountIncorrect;
+                    amountUnanswered = questions.length-1 - amountCorrect - amountIncorrect;
                 }
             }
         }
