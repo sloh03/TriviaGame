@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 
     // Hide done button
@@ -70,42 +69,42 @@ $(document).ready(function() {
     // Use array to store questions, answer choices, and correct answer
     var questions = [
         {
-            question: 'How many body systems are there?',
+            question: '1. How many body systems are there?',
             choices: ['4', '7', '11', '15'],
             correctAnswer: 2
         },
         {
-            question: 'What connects bones and muscles together?',
+            question: '2. What connects bones and muscles together?',
             choices: ['Ligaments', 'Tendons', 'Glue', 'Cartilage'],
             correctAnswer: 1
         },
         {
-            question: 'Which part of the brain keeps you breathing?',
+            question: '3. Which part of the brain keeps you breathing?',
             choices: ['Frontal lobe', 'Pituitary gland', 'Cerebellum', 'Brain stem'],
             correctAnswer: 3
         },
         {
-            question: 'How many bones does an adult human have?',
+            question: '4. How many bones does an adult human have?',
             choices: ['102', '206', '254', '311'],
             correctAnswer: 1
         },
         {
-            question: 'What component of the eye allows for color vision?',
+            question: '5. What component of the eye allows for color vision?',
             choices: ['Lens', 'Rods', 'Cones', 'Iris'],
             correctAnswer: 2
         },
         {
-            question: "How long are an adult's small and large intestines, respectively?",
+            question: "6. How long are an adult's small and large intestines, respectively?",
             choices: ['22ft, 5ft', '11ft, 2ft', '5ft, 17ft', '7ft, 30ft'],
             correctAnswer: 0
         },
         {
-            question: 'What are you front teeth called?',
+            question: '7. What are you front teeth called?',
             choices: ['Canines', 'Chompers', 'Incisors', 'Molars'],
             correctAnswer: 2
         },
         {
-            question: 'What organ removes waste from blood?',
+            question: '8. What organ removes waste from blood?',
             choices: ['Heart', 'Appendix', 'Gallbladder', 'Kidneys'],
             correctAnswer: 3
         }
@@ -121,7 +120,7 @@ $(document).ready(function() {
             var choices = questions[i].choices;
 
             // Display each question
-            $('#questions').append((i+1) + '. ' + question + '<br>');
+            $('#questions').append(question + '<br>');
 
             // Display all answer choices using radio buttons
             $('#questions').append("<label>" + "<input type='radio' name='quiz" + question[0] + "'id='" + (0) + "'value='" + choices[0] + "'>" + ' ' + choices[0] + "</label><br>");
@@ -141,7 +140,7 @@ $(document).ready(function() {
     function checkAnswers() {
 
         // Loop through all questions
-        for (var i = 0; i<questions.length; i++) { // <---- Added +1 here to register question #8 ***
+        for (var i = 0; i<questions.length; i++) {
 
             var radios = document.getElementsByName('quiz' + (i+1));
 
@@ -149,7 +148,7 @@ $(document).ready(function() {
             for (var j = 0; j<radios.length; j++) {
 
                 var radio = radios[j];
-                var correctAnswer = questions[i].correctAnswer; // <---- -1 here so answers match with question ***
+                var correctAnswer = questions[i].correctAnswer;
 
                 // Check if selected answer is correct 
                 if(parseInt(radio.id) === correctAnswer && radio.checked) {
@@ -180,10 +179,8 @@ $(document).ready(function() {
     // Display 'done' button
 
 // AT END OF TIMER OR WHEN 'DONE' BUTTON PRESSED
-    // End quiz (function)
-        // Clear timer
-        // Hide questions
-        // Hide timer
-        // Count correct and incorrect questions, subtract from total to count unanswered questions (function)
-        // Display 'All Done!' message and amount of correct, incorrect, and unanswered questions
-
+    // Clear timer
+    // Hide questions
+    // Hide timer
+    // Count correct and incorrect questions, subtract from total to count unanswered questions (function)
+    // Display 'All Done!' message and amount of correct, incorrect, and unanswered questions
