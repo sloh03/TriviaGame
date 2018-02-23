@@ -36,29 +36,17 @@ $(document).ready(function() {
             $('#time-left').html(timeLeft + ' seconds remaining');
             timeLeft--;
         }
-        // AT END OF TIMER
+        // AT END OF TIMER, END QUIZ
         if (timeLeft === -1) {
-            clearTimeout(timerId);
-            // Hide questions
-            $('#questions').hide();
-            // Hide timer
-            $('#time-left').hide();
-            // Hide 'Done' button
-            $('#done').hide();
-            // Count correct, incorrect, and unanswered questions
-            checkAnswers();
-            // Display 'All Done!' message and amount of correct, incorrect, and unanswered questions (array length)
-            $('#results').append(
-                'All done!' + '<br>' + 
-                'Correct Answers: ' + amountCorrect + '<br>' +
-                'Incorrect Answers: ' + amountIncorrect + '<br>' +
-                'Unanswered: ' + amountUnanswered
-            );
+            endQuiz();
         }
     }
 
-    // ON CLICK OF DONE BUTTON
-    $('#done').on("click", function() {
+    // ON CLICK OF DONE BUTTON, END QUIZ
+    $('#done').on("click", endQuiz);
+
+    // Create end quiz function
+    function endQuiz() {
         // Clear timer
         clearTimeout(timerId);
         // Hide questions
@@ -76,48 +64,48 @@ $(document).ready(function() {
             'Incorrect Answers: ' + amountIncorrect + '<br>' +
             'Unanswered: ' + amountUnanswered
         );
-    });
+    }
 
     // DISPLAY QUIZ
     // Use array to store questions, answer choices, and correct answer
     var questions = [
         {
-            question: '1. How many body systems are there?',
+            question: 'How many body systems are there?',
             choices: ['4', '7', '11', '15'],
             correctAnswer: 2
         },
         {
-            question: '2. What connects bones and muscles together?',
+            question: 'What connects bones and muscles together?',
             choices: ['Ligaments', 'Tendons', 'Glue', 'Cartilage'],
             correctAnswer: 1
         },
         {
-            question: '3. Which part of the brain keeps you breathing?',
+            question: 'Which part of the brain keeps you breathing?',
             choices: ['Frontal lobe', 'Pituitary gland', 'Cerebellum', 'Brain stem'],
             correctAnswer: 3
         },
         {
-            question: '4. How many bones does an adult human have?',
+            question: 'How many bones does an adult human have?',
             choices: ['102', '206', '254', '311'],
             correctAnswer: 1
         },
         {
-            question: '5. What component of the eye allows for color vision?',
+            question: 'What component of the eye allows for color vision?',
             choices: ['Lens', 'Rods', 'Cones', 'Iris'],
             correctAnswer: 2
         },
         {
-            question: "6. How long are an adult's small and large intestines, respectively?",
+            question: "How long are an adult's small and large intestines, respectively?",
             choices: ['22ft, 5ft', '11ft, 2ft', '5ft, 17ft', '7ft, 30ft'],
             correctAnswer: 0
         },
         {
-            question: '7. What are you front teeth called?',
+            question: 'What are you front teeth called?',
             choices: ['Canines', 'Chompers', 'Incisors', 'Molars'],
             correctAnswer: 2
         },
         {
-            question: '8. What organ removes waste from blood?',
+            question: 'What organ removes waste from blood?',
             choices: ['Heart', 'Appendix', 'Gallbladder', 'Kidneys'],
             correctAnswer: 3
         }
@@ -182,13 +170,6 @@ $(document).ready(function() {
 
 });
 
-// ** Help! **
-// Want to combine code of timer reaching 0 and done button clicked
-// Results are shifted so made weird fix, adding -1 to couple places
-
-
-
-
 // SUMMARY
 
 // ON PAGE LOAD, DISPLAY START BUTTON
@@ -199,9 +180,10 @@ $(document).ready(function() {
     // Display 'done' button
 
 // AT END OF TIMER OR WHEN 'DONE' BUTTON PRESSED
-    // Clear timer
-    // Hide questions
-    // Hide timer
-    // Count correct and incorrect questions, subtract from total to count unanswered questions (function)
-    // Display 'All Done!' message and amount of correct, incorrect, and unanswered questions
+    // End quiz (function)
+        // Clear timer
+        // Hide questions
+        // Hide timer
+        // Count correct and incorrect questions, subtract from total to count unanswered questions (function)
+        // Display 'All Done!' message and amount of correct, incorrect, and unanswered questions
 
