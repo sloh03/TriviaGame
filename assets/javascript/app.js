@@ -133,7 +133,7 @@ $(document).ready(function() {
             var choices = questions[i].choices;
 
             // Display each question
-            $('#questions').append(question + '<br>');
+            $('#questions').append((i+1) + '. ' + question + '<br>');
 
             // Display all answer choices using radio buttons
             $('#questions').append("<label>" + "<input type='radio' name='quiz" + question[0] + "'id='" + (0) + "'value='" + choices[0] + "'>" + ' ' + choices[0] + "</label><br>");
@@ -153,15 +153,15 @@ $(document).ready(function() {
     function checkAnswers() {
 
         // Loop through all questions
-        for (var i = 0; i<questions.length+1; i++) { // <---- Added +1 here to register question #8 ***
+        for (var i = 0; i<questions.length; i++) { // <---- Added +1 here to register question #8 ***
 
-            var radios = document.getElementsByName('quiz' + i);
+            var radios = document.getElementsByName('quiz' + (i+1));
 
             // Loop through sets of answer choices for each question
             for (var j = 0; j<radios.length; j++) {
 
                 var radio = radios[j];
-                var correctAnswer = questions[i-1].correctAnswer; // <---- -1 here so answers match with question ***
+                var correctAnswer = questions[i].correctAnswer; // <---- -1 here so answers match with question ***
 
                 // Check if selected answer is correct 
                 if(parseInt(radio.id) === correctAnswer && radio.checked) {
@@ -174,7 +174,7 @@ $(document).ready(function() {
                     amountIncorrect++;
                 }
                 // Calculate amount unanswered 
-                amountUnanswered = questions.length - amountCorrect - amountIncorrect; // <---- Sometimes wrong ***
+                amountUnanswered = questions.length - amountCorrect - amountIncorrect;
                 
             }
         }
