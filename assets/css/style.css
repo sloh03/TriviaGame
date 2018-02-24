@@ -1,8 +1,23 @@
+body {
+    background-image: url('gplaypattern.png');
+}
+
+#game-name {
+    font-family: 'Special Elite', cursive;
+    font-weight: bold;
+}
+
 label {
     font-weight: normal;
+}
+
+.results {
+    margin-top: 150px;
 }
 
 #results {
     text-align: center;
     line-height: 1.5;
 }
+
+

@@ -16,7 +16,7 @@ $(document).ready(function() {
     });
 
     // COUNTDOWN TIMER
-    // Start timer countdown from 30s
+    // Start timer countdown from 45s
     var timeLeft = 45;
         
     // Variable that will hold our setInterval that runs the timer
@@ -30,6 +30,7 @@ $(document).ready(function() {
     // Create countdown function
     function countdown() {
 
+        // While timer is running
         if (timeLeft !== -1) {
             // Display countdown
             $('#time-left').html(timeLeft + ' seconds remaining');
@@ -168,6 +169,12 @@ $(document).ready(function() {
     }
 
 });
+
+// Help!
+// When adding (i+1) to number questions, code works, 
+// but does not register when numbers deleted from questions array
+
+
 
 // SUMMARY
 
