@@ -1,14 +1,16 @@
-# Trivia Game: Human Physiology
+# Quiz Topic: Human Physiology
 
 ## [LIVE DEMO](https://sloh03.github.io/trivia-game/)
 
-## The Game
-Answer 8 questions in 45 seconds. Press 'Start' to begin. The questions are all multiple choice and related to human physiology. If the player finishes before the time is up, 'Done' may be pressed to view results. Otherwise, the results will automatically load when time is up. Results show amount of questions answered correctly or incorrectly, and the amount of questions left unanswered.
+## The Quiz
+Answer 8 questions in 45 seconds. The questions are multiple choice and related to human physiology. The quiz can be submitted at any point and the results will display. The results will also display when time is up. Results show amount of questions answered correctly or incorrectly, and the amount of questions left unanswered. Press 'Start' to begin.
 
-## Languages Used
+## Languages and Libraries Used
 * HTML
 * CSS
+* Bootstrap
 * JavaScript
 * jQuery
-## Materials Sources
-* Background from [toptal.com](https://www.toptal.com/designers/subtlepatterns/gplay/)
+
+## UI Design
+* Logo created using Inkscape, inspired by Logos By Nick
