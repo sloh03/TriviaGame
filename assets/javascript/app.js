@@ -2,11 +2,14 @@ $(document).ready(function() {
 
     // Hide done button
     $('#done').hide();
+    $('#results-name').hide();
     
     // ON CLICK OF START BUTTON
     $('#start').on("click", function() {
         // Display and start countdown
         startTimer();
+        // Hide instructions
+        $('#instructions').hide();
         // Hide start button
         $('#start').hide();
         // Display 8 questions with answer choices in 'questions' div
@@ -49,6 +52,9 @@ $(document).ready(function() {
     function endQuiz() {
         // Clear timer
         clearTimeout(timerId);
+        // Change to results
+        $('#game-name').hide();
+        $('#results-name').show();
         // Hide questions
         $('#questions').hide();
         // Hide timer
@@ -59,7 +65,7 @@ $(document).ready(function() {
         checkAnswers();
         // Display 'All Done!' message and amount of correct, incorrect, and unanswered questions (array length)
         $('#results').append(
-            'All done!' + '<br>' + 
+            'Your quiz has been submitted.' + '<br><br>' + 
             'Correct Answers: ' + amountCorrect + '<br>' +
             'Incorrect Answers: ' + amountIncorrect + '<br>' +
             'Unanswered: ' + amountUnanswered
@@ -121,7 +127,7 @@ $(document).ready(function() {
             var choices = questions[i].choices;
 
             // Display each question
-            $('#questions').append((i+1) + '. ' + question + '<br>');
+            $('#questions').append((i+1) + '. ' + question + '<br><br>');
 
             // Display all answer choices using radio buttons
             $('#questions').append("<label>" + "<input type='radio' name='quiz" + (i+1) + "'id='" + (0) + "'value='" + choices[0] + "'>" + ' ' + choices[0] + "</label><br>");

@@ -1,22 +1,42 @@
-body {
+/* body {
     background-image: url('gplaypattern.png');
+} */
+
+.jumbotron {
+    background-color: #1B3061;
+    color: #fff;
+    min-height: 100px;
+    max-height: 150px;
+}
+
+.vertical-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#school-name {
+    margin: 0;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-family: 'Crimson Text', serif;
 }
 
 #game-name {
-    font-family: 'Special Elite', cursive;
-    font-weight: bold;
+    /* font-family: 'Special Elite', cursive; */
+    /* font-weight: bold; */
 }
 
 label {
     font-weight: normal;
 }
 
-.results {
+/* .results {
     margin-top: 150px;
-}
+} */
 
 #results {
-    text-align: center;
+    /* text-align: center; */
     line-height: 1.5;
 }
 

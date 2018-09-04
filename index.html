@@ -20,19 +20,39 @@
 
    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
 
 
     <title>Trivia Game</title>
 
   </head>
   <body>
+
+      <!-- Title -->
+      <div class="jumbotron vertical-center">
+        <div class="container">
+
+          <!-- School name -->
+          <h1 id="school-name">University of Science</h1>
+
+        </div>
+      </div>
+
+      <!-- Timer and Quiz -->
       <div class="container">
-        
-        <h1 id="game-name">Trivia Game</h1>
+
+        <h1 id="game-name">Physiology Quiz</h1>
+        <h1 id="results-name">Quiz Results</h1>
 
         <h4>
-          <div id="time-left">00:45</div>
+          <div id="time-left">Time to complete: 00:45</div>
         </h4>
+
+        <br>
+
+        <p id="instructions">You have 45 seconds to answer 8 multiple choice questions. If you finish before the time is up, you may submit the quiz and view your results. Press 'Start' to begin.</p>
+
+        <br>
 
         <div id="start">
             <button type="button" class="btn btn-primary btn-lg">Start</button>
@@ -49,5 +69,6 @@
         </h4>
 
       </div>
+
   </body>
 </html>
