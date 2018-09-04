@@ -5,6 +5,8 @@
 ## The Quiz
 Answer 8 questions in 45 seconds. The questions are multiple choice and related to human physiology. The quiz can be submitted at any point and the results will display. The results will also display when time is up. Results show amount of questions answered correctly or incorrectly, and the amount of questions left unanswered. Press 'Start' to begin.
 
+![Alt text](assets/images/3TriviaGame.jpg?raw=true "Quiz")
+
 ## Languages and Libraries Used
 * HTML
 * CSS
