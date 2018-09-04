@@ -5,7 +5,7 @@
 .jumbotron {
     background-color: #1B3061;
     color: #fff;
-    min-height: 100px;
+    min-height: 150px;
     max-height: 150px;
 }
 
@@ -15,28 +15,28 @@
     justify-content: center;
 }
 
+.jumbo-center {
+    display: flex;
+    align-items: center;
+}
+
+#logo {
+    vertical-align: center;
+}
+
 #school-name {
     margin: 0;
     margin-top: 5%;
     margin-bottom: 5%;
     font-family: 'Crimson Text', serif;
-}
-
-#game-name {
-    /* font-family: 'Special Elite', cursive; */
-    /* font-weight: bold; */
+    font-size: 3em;
 }
 
 label {
     font-weight: normal;
 }
 
-/* .results {
-    margin-top: 150px;
-} */
-
 #results {
-    /* text-align: center; */
     line-height: 1.5;
 }
 
