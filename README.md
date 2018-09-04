@@ -7,6 +7,10 @@ Answer 8 questions in 45 seconds. The questions are multiple choice and related 
 
 ![Alt text](assets/images/3TriviaGame.jpg?raw=true "Quiz")
 
+![Alt text](assets/images/quiz.jpg?raw=true "Quiz")
+
+![Alt text](assets/images/results.jpg?raw=true "Quiz")
+
 ## Languages and Libraries Used
 * HTML
 * CSS
