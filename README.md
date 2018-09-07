@@ -1,4 +1,6 @@
-# Quiz Topic: Human Physiology
+# Timed Quiz
+
+## Topic: Human Physiology
 
 ## [LIVE DEMO](https://sloh03.github.io/trivia-game/)
 
@@ -19,4 +21,4 @@ Answer 8 questions in 45 seconds. The questions are multiple choice and related 
 * jQuery
 
 ## UI Design
-* Logo created using Inkscape, inspired by Logos By Nick
+* The quiz is functional on all devices. Logo created by Stefanie Loh, inspired by Logos by Nick.
